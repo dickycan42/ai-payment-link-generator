@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Payment Link Generator — PayPal AI Hackathon 2026</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">💸🤖</div>
+    <h1>AI Payment Link Generator</h1>
+    <p class="subtitle">Type it like you'd say it. AI builds the PayPal invoice.</p>
+    <div class="badges">
+      <span class="badge" id="mode-badge">…</span>
+      <span class="badge">PayPal Sandbox</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <label for="nl-input">Describe the invoice in plain words <span class="lang-hint">(English or Bahasa Indonesia)</span></label>
+      <textarea id="nl-input" rows="3" placeholder='e.g. tagih $50 ke client buat desain logo'></textarea>
+      <div class="examples">
+        <span>Try:</span>
+        <button class="chip" data-ex="tagih $50 ke client buat desain logo">🇮🇩 tagih $50…</button>
+        <button class="chip" data-ex="invoice 250000 rupiah to budi@gmail.com for website redesign">🇮🇩 invoice 250rb…</button>
+        <button class="chip" data-ex="charge €75 to maria@example.com for consulting session">🇬🇧 charge €75…</button>
+        <button class="chip" data-ex="bill 1.5 juta to siti@gmail.com untuk jasa fotografi">🇮🇩 1.5 juta…</button>
+      </div>
+      <div class="actions">
+        <button id="btn-parse" class="btn secondary">🔍 Parse with AI</button>
+        <button id="btn-create" class="btn primary">⚡ Create payment link</button>
+      </div>
+    </section>
+
+    <section class="card hidden" id="parsed-card">
+      <h2>🧠 AI parsed</h2>
+      <div class="grid" id="parsed-grid"></div>
+      <p class="confidence" id="parsed-confidence"></p>
+      <div class="edit-row">
+        <label>Recipient email <input type="email" id="edit-email" placeholder="client@example.com"></label>
+        <label>Amount <input type="number" id="edit-amount" min="1" step="0.01"></label>
+        <label>Currency
+          <select id="edit-currency">
+            <option>USD</option><option>IDR</option><option>EUR</option>
+            <option>GBP</option><option>MYR</option><option>PHP</option>
+          </select>
+        </label>
+      </div>
+      <label>Description <input type="text" id="edit-desc" placeholder="What is this invoice for?"></label>
+    </section>
+
+    <section class="card hidden" id="result-card">
+      <h2>✅ Invoice ready</h2>
+      <div class="grid" id="result-grid"></div>
+      <a id="pay-link" class="pay-link" href="#" target="_blank" rel="noopener">🔗 Open payment link</a>
+      <button id="btn-copy" class="btn secondary">📋 Copy link</button>
+      <p class="note" id="result-note"></p>
+    </section>
+
+    <section class="card hidden error" id="error-card">
+      <h2>⚠️ Oops</h2>
+      <p id="error-msg"></p>
+      <p class="hint" id="error-hint"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for the PayPal AI Hackathon 2026 · Sandbox only — no real money moves.</p>
+  </footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
