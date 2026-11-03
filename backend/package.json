@@ -1,0 +1,1 @@
+{"dependencies":{"cors":"^2.8.5","dotenv":"^16.4.5","express":"^4.19.2"},"description":"Backend for AI Payment Link Generator - PayPal AI Hackathon 2026","engines":{"node":">=18"},"main":"server.js","name":"paypal-ai-invoice-backend","scripts":{"dev":"node --watch server.js","start":"node server.js"},"version":"1.0.0"}
